@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWS Chile - Apps Educativas para el Éxito | PAES, Memoria y Bienestar</title>
+    <meta name="description"
+        content="Descubre las mejores apps educativas chilenas. Prepárate para la PAES 2025, mejora tu lectura veloz, entrena tu memoria y aprende inglés. Calidad educativa desde Chile.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="WWS Chile - Apps Educativas para el Éxito">
+    <meta property="og:description"
+        content="Prepárate para la PAES y mejora tus habilidades con nuestras apps. Hecho en Chile.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wws.cl">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "WWS Chile",
+        "url": "https://wws.cl",
+        "description": "Aplicaciones educativas chilenas para la preparación PAES y desarrollo personal",
+        "logo": "https://wws.cl/logo.png",
+        "sameAs": [
+            "https://youtube.com/@wwschile",
+            "https://tiktok.com/@wwschile"
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #1e40af;
+            --secondary: #dc2626;
+            --bg-light: #f8fafc;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px rgba(30, 64, 175, 0);
+            }
+        }
+
+        .progress-bar-anim {
+            animation: progressGrow 1.5s ease-out forwards;
+        }
+
+        @keyframes progressGrow {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 30%;
+            }
+        }
+
+        .flag-gradient {
+            background: linear-gradient(to right, #1e40af 0%, #1e40af 33.33%, #ffffff 33.33%, #ffffff 66.66%, #dc2626 66.66%, #dc2626 100%);
+            height: 4px;
+        }
+
+        /* FAQ Accordion */
+        .faq-item input:checked~.faq-content {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+
+        .faq-item input:checked~label svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Barra decorativa bandera -->
+    <div class="flag-gradient w-full"></div>
+
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black text-blue-800">WWS</span>
+                <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">CHILE 🇨🇱</span>
+            </div>
+            <div class="hidden md:flex gap-8 items-center text-sm font-semibold text-gray-700">
+                <a href="#paes" class="hover:text-blue-700 transition">PAES 2025</a>
+                <a href="#estudio" class="hover:text-blue-700 transition">Técnicas de Estudio</a>
+                <a href="#ingles" class="hover:text-blue-700 transition">Aprende Inglés</a>
+                <a href="#bienestar" class="hover:text-blue-700 transition">Bienestar</a>
+                <a href="#contacto"
+                    class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden pt-20 pb-16 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                    El portal de entrada al <span class="text-blue-700">éxito académico</span> en Chile.
+                </h1>
+                <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                    Desarrollamos herramientas digitales de alta precisión para estudiantes chilenos. Prepárate para la
+                    PAES, potencia tu mente y domina nuevos idiomas.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#paes"
+                        class="bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-blue-200 hover:bg-blue-800 transition btn-pulse">
+                        Ver Apps PAES 2025
+                    </a>
+                    <div class="flex items-center gap-2 text-slate-500 font-medium">
+                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Hecho por expertos en Chile
+                    </div>
+                </div>
+            </div>
+            <div class="relative fade-in" style="animation-delay: 0.2s;">
+                <div class="bg-blue-50 rounded-3xl p-8 border border-blue-100">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                            <div class="text-3xl font-bold text-blue-700 mb-1">100%</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wider font-bold">Curriculm DEMRE</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+                            <div class="text-3xl font-bold text-blue-700 mb-1">+40k</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wider font-bold">Preguntas</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm text-center col-span-2">
+                            <div class="flex justify-center -space-x-3 mb-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-200 border-2 border-white flex items-center justify-center font-bold text-blue-700">
+                                    A</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-red-200 border-2 border-white flex items-center justify-center font-bold text-red-700">
+                                    B</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center font-bold text-slate-700">
+                                    +</div>
+                            </div>
+                            <div class="text-slate-600 font-medium italic">"La mejor forma de prepararse en el celular"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección PAES (Grupo D) -->
+    <section id="paes" class="py-20 bg-slate-50 border-y border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-700 font-bold uppercase tracking-widest text-sm">Prueba de Acceso a la Educación
+                    Superior</span>
+                <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">Serie Especializada PAES 2025</h2>
+                <p class="text-lg text-slate-600">
+                    Nuestras apps están diseñadas bajo el marco oficial del DEMRE. Domina cada área con ensayos reales y
+                    explicaciones detalladas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- App PAES Lectora -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Competencia Lectora</h3>
+                    <p class="text-sm text-slate-500 mb-6">Clave para todas las carreras. Estrategias de comprensión y
+                        vocabulario contextual.</p>
+                    <span
+                        class="inline-block bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full mb-4">EN
+                        DESARROLLO</span>
+                    <button
+                        class="w-full py-2 bg-slate-800 text-white rounded-lg text-sm font-bold opacity-50 cursor-not-allowed">Inscripción
+                        Beta</button>
+                </div>
+
+                <!-- App PAES Mate M1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Matemática M1</h3>
+                    <p class="text-sm text-slate-500 mb-6">Prueba obligatoria. Resolución de problemas, álgebra y
+                        funciones desde cero.</p>
+                    <span
+                        class="inline-block bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full mb-4">EN
+                        DESARROLLO</span>
+                    <button
+                        class="w-full py-2 bg-slate-800 text-white rounded-lg text-sm font-bold opacity-50 cursor-not-allowed">Inscripción
+                        Beta</button>
+                </div>
+
+                <!-- App PAES Mate M2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <div
+                        class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6 text-blue-700 font-bold">
+                        M2</div>
+                    <h3 class="text-xl font-bold mb-2">Matemática M2</h3>
+                    <p class="text-sm text-slate-500 mb-6">Alta intensidad para ingeniería y ciencias. Cálculo y
+                        geometría avanzada.</p>
+                    <span
+                        class="inline-block bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full mb-4">EN
+                        DESARROLLO</span>
+                    <button
+                        class="w-full py-2 bg-slate-800 text-white rounded-lg text-sm font-bold opacity-50 cursor-not-allowed">Inscripción
+                        Beta</button>
+                </div>
+
+                <!-- App PAES Ciencias Biología -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ciencias – Biología</h3>
+                    <p class="text-sm text-slate-500 mb-6">Estructura celular, herencia y ecosistemas. El temario más
+                        completo.</p>
+                    <span
+                        class="inline-block bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full mb-4">EN
+                        DESARROLLO</span>
+                    <button
+                        class="w-full py-2 bg-slate-800 text-white rounded-lg text-sm font-bold opacity-50 cursor-not-allowed">Inscripción
+                        Beta</button>
+                </div>
+
+                <!-- Más apps PAES -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <h3 class="text-lg font-bold mb-2">Historia y Cs. Sociales</h3>
+                    <p class="text-xs text-slate-500 mb-4">Chile y el mundo en el Siglo XX. Formación ciudadana.</p>
+                    <span class="text-xs font-bold text-blue-600">Próximamente</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <h3 class="text-lg font-bold mb-2">Cs. – Química</h3>
+                    <p class="text-xs text-slate-500 mb-4">Estructura atómica, orgánica y estequiometría.</p>
+                    <span class="text-xs font-bold text-blue-600">Próximamente</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <h3 class="text-lg font-bold mb-2">Cs. – Física</h3>
+                    <p class="text-xs text-slate-500 mb-4">Ondas, mecánica, energía y electricidad.</p>
+                    <span class="text-xs font-bold text-blue-600">Próximamente</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <h3 class="text-lg font-bold mb-2">Ciencias – Técnico Prof.</h3>
+                    <p class="text-xs text-slate-500 mb-4">Preparación específica para egresados TP.</p>
+                    <span class="text-xs font-bold text-blue-600">Próximamente</span>
+                </div>
+            </div>
+
+            <div
+                class="mt-16 bg-blue-700 rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-xl">
+                    <h3 class="text-3xl font-bold mb-4">¿Qué es la PAES?</h3>
+                    <p class="text-blue-100 mb-4">La Prueba de Acceso a la Educación Superior es el examen que define tu
+                        entrada a la universidad en Chile. Atrás quedaron la PSU y la PTU; la PAES evalúa competencias,
+                        es decir, ¡qué sabes hacer con lo que aprendiste!</p>
+                    <p class="text-blue-100 font-medium">Nuestras apps WWS te ayudan a practicar bajo presión,
+                        identificar tus debilidades y dominar el temario DEMRE 2025.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl w-full md:w-auto min-w-[300px]">
+                    <h4 class="font-bold mb-4">¡Gana un pase Beta!</h4>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="tu@correo.cl"
+                            class="w-full bg-white text-slate-900 px-4 py-2 rounded-lg font-medium outline-none">
+                        <button class="w-full bg-slate-900 py-2 rounded-lg font-bold text-sm tracking-wide">QUIERO SER
+                            NOTIFICADO</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Técnicas de Estudio (Grupo C) -->
+    <section id="estudio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Técnicas de Estudio de Nivel Mundial</h2>
+                    <p class="text-lg text-slate-600">No estudies más horas, estudia mejor. Entrena tu lectura y tu
+                        memoria con métodos usados por expertos internacionales.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Lectura Veloz Halcón -->
+                <div class="group">
+                    <div class="bg-slate-50 rounded-3xl overflow-hidden mb-6 card-hover border border-slate-100">
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="text-5xl">🦅</div>
+                                <span
+                                    class="bg-green-100 text-green-700 text-xs font-black px-4 py-1.5 rounded-full">CALIDAD
+                                    PROFESIONAL</span>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4">Lectura Veloz Halcón</h3>
+                            <p class="text-slate-600 mb-6 leading-relaxed">¿Cuántas horas pierdes leyendo lentamente? La
+                                persona promedio lee 200-250 palabras por minuto. <strong
+                                    class="text-slate-900 font-bold">Duplica tu velocidad sin perder
+                                    comprensión</strong> con el Método Halcón.</p>
+
+                            <div class="space-y-3 mb-8">
+                                <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                    <div
+                                        class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px]">
+                                        ✔</div>
+                                    Elimina la pronunciación mental
+                                </div>
+                                <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                    <div
+                                        class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px]">
+                                        ✔</div>
+                                    Entrena tu visión periférica
+                                </div>
+                                <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                    <div
+                                        class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px]">
+                                        ✔</div>
+                                    Incluye tests de velocidad reales
+                                </div>
+                            </div>
+
+                            <a href="#"
+                                class="inline-flex items-center gap-3 bg-blue-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-800 transition">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                    alt="Play Store" class="h-6">
+                                Descargar Gratis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memoria de Elefante -->
+                <div class="group">
+                    <div class="bg-slate-50 rounded-3xl overflow-hidden mb-6 card-hover border border-slate-100">
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="text-5xl">🐘</div>
+                                <span
+                                    class="bg-green-100 text-green-700 text-xs font-black px-4 py-1.5 rounded-full">GARANTÍA
+                                    DE APRENDIZAJE</span>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4">Memoria de Elefante</h3>
+                            <p class="text-slate-600 mb-6 leading-relaxed">¿Olvidas lo que estudiaste a los 10 minutos?
+                                <strong class="text-slate-900 font-bold">Domina las técnicas de los campeones del
+                                    mundo.</strong> Usa el Palacio de Memoria y asociaciones visuales para no olvidar
+                                jamás un dato.</p>
+
+                            <div class="space-y-3 mb-8">
+                                <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                    <div
+                                        class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px]">
+                                        ✔</div>
+                                    Método de Loci (Palacio Mental)
+                                </div>
+                                <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                    <div
+                                        class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px]">
+                                        ✔</div>
+                                    Asociación Visual Absurda (Nemonix)
+                                </div>
+                                <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                    <div
+                                        class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px]">
+                                        ✔</div>
+                                    Juegos de entrenamiento diario
+                                </div>
+                            </div>
+
+                            <a href="#"
+                                class="inline-flex items-center gap-3 bg-blue-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-800 transition">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                    alt="Play Store" class="h-6">
+                                Descargar Gratis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inglés Flashcards (Grupo A) -->
+    <section id="ingles" class="py-20 bg-blue-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <span class="text-red-400 font-black uppercase text-sm tracking-widest">Nivel Progresivo</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-8">Domina el inglés con Repetición Espaciada
+                    </h2>
+                    <p class="text-xl text-blue-200 mb-8 leading-relaxed">
+                        Nuestra serie de Flashcards usa el sistema **SRS (Spaced Repetition System)**. Te muestra la
+                        palabra justo antes de que tu cerebro la olvide, maximizando la retención permanente.
+                    </p>
+
+                    <div class="bg-white/10 p-8 rounded-3xl border border-white/10 relative">
+                        <div
+                            class="absolute -top-4 -right-4 bg-red-600 px-4 py-1 rounded-full text-sm font-black shadow-lg glow">
+                            ACCESO ANTICIPADO</div>
+                        <h3 class="text-2xl font-bold mb-4">Inglés Básico 500</h3>
+                        <p class="text-blue-100 mb-6">Domina las 500 palabras más usadas. Con esto, entenderás el 80% de
+                            una conversación diaria.</p>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between text-xs font-bold mb-2">
+                                <span>Progreso de Contenido</span>
+                                <span>150 / 500 Cards</span>
+                            </div>
+                            <div class="h-3 bg-white/20 rounded-full overflow-hidden">
+                                <div class="progress-bar-anim h-full bg-blue-400"></div>
+                            </div>
+                        </div>
+
+                        <ul class="grid grid-cols-2 gap-3 mb-8 text-sm">
+                            <li class="flex items-center gap-2">🔹 Audio Nativo</li>
+                            <li class="flex items-center gap-2">🔹 Imágenes Memoric</li>
+                            <li class="flex items-center gap-2">🔹 Traducción Chile</li>
+                            <li class="flex items-center gap-2">🔹 Ejemplos Reales</li>
+                        </ul>
+
+                        <button
+                            class="w-full bg-white text-blue-900 py-4 rounded-xl font-black text-lg hover:bg-blue-50 transition">DESCARGAR
+                            BETA</button>
+                    </div>
+                </div>
+
+                <div class="fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-2xl font-bold mb-8 text-blue-300">Hoja de Ruta de Aprendizaje</h3>
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center gap-6 p-4 rounded-2xl border border-white/10 bg-white/5 opacity-80">
+                            <div class="text-3xl">1k</div>
+                            <div>
+                                <h4 class="font-bold">Inglés Plus 1000</h4>
+                                <p class="text-xs text-blue-300">Nivel A2-B1: Vocabulario profesional básico</p>
+                            </div>
+                            <div class="ml-auto text-xs bg-slate-800 px-2 py-1 rounded">2025</div>
+                        </div>
+                        <div
+                            class="flex items-center gap-6 p-4 rounded-2xl border border-white/10 bg-white/5 opacity-60">
+                            <div class="text-3xl">2k</div>
+                            <div>
+                                <h4 class="font-bold">Inglés Avanzado 2000</h4>
+                                <p class="text-xs text-blue-300">Nivel B1-B2: Domina el entorno laboral</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-6 p-4 rounded-2xl border border-white/10 bg-white/5 opacity-40">
+                            <div class="text-3xl">4k</div>
+                            <div>
+                                <h4 class="font-bold">Inglés Master 4000</h4>
+                                <p class="text-xs text-blue-300">Nivel C1-C2: Fluidez total nativa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bienestar (Grupo B) -->
+    <section id="bienestar" class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1">
+                        <span class="text-blue-700 font-bold uppercase text-sm">Bienestar y Salud Mental</span>
+                        <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-6">Respira con Animales</h2>
+                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                            Baja tus niveles de ansiedad antes de la PAES o después del trabajo. Basada en técnicas de
+                            **coherencia cardíaca**, esta app usa animales relajantes para guiar tu respiración.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span class="font-bold text-slate-700">Técnica 4-7-8</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                                <span class="font-bold text-slate-700">Box Breathing</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex items-center gap-6 mb-8">
+                            <div class="text-4xl">🐻‍❄️</div>
+                            <p class="text-slate-600 text-sm">"Probado por más de 5,000 usuarios en Chile para reducir
+                                el estrés en solo 5 minutos."</p>
+                        </div>
+
+                        <a href="#"
+                            class="inline-flex items-center gap-3 bg-blue-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-800 transition btn-pulse">
+                            Descargar en Google Play
+                        </a>
+                    </div>
+                    <div class="flex-1 w-full max-w-sm">
+                        <div
+                            class="relative bg-blue-50 rounded-full aspect-square flex items-center justify-center border-8 border-white shadow-2xl overflow-hidden group">
+                            <div class="text-[120px] filter drop-shadow-lg transform transition group-hover:scale-110">
+                                🐻‍❄️</div>
+                            <div
+                                class="absolute inset-x-0 bottom-0 py-6 bg-blue-700/80 backdrop-blur text-white text-center text-sm font-black">
+                                RESPIRA CON EL OSO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Chile -->
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Preguntas Frecuentes</h2>
+
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-2xl p-6 border border-slate-200">
+                    <input type="checkbox" id="f1" class="hidden">
+                    <label for="f1" class="flex justify-between items-center cursor-pointer font-bold text-slate-800">
+                        ¿Las apps PAES son gratuitas?
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </label>
+                    <p class="faq-content text-slate-600 mt-0 text-sm leading-relaxed">Sí, nuestra misión es
+                        democratizar el acceso a la educación. Todas nuestras apps tienen una versión gratuita muy
+                        potente. Ofrecemos una versión Premium opcional para eliminar publicidad y acceder a ensayos
+                        ilimitados.</p>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl p-6 border border-slate-200">
+                    <input type="checkbox" id="f2" class="hidden">
+                    <label for="f2" class="flex justify-between items-center cursor-pointer font-bold text-slate-800">
+                        ¿Funcionan sin internet?
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </label>
+                    <p class="faq-content text-slate-600 mt-0 text-sm leading-relaxed">¡Sí! Una vez descargada la app y
+                        sus contenidos iniciales, puedes practicar en el metro, micro o donde quieras sin gastar datos.
+                    </p>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl p-6 border border-slate-200">
+                    <input type="checkbox" id="f3" class="hidden">
+                    <label for="f3" class="flex justify-between items-center cursor-pointer font-bold text-slate-800">
+                        ¿Están actualizadas al temario 2025?
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </label>
+                    <p class="faq-content text-slate-600 mt-0 text-sm leading-relaxed">Absolutamente. Trabajamos
+                        directamente con los temarios oficiales del DEMRE para asegurar que cada pregunta que respondas
+                        sea relevante para tu prueba.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="text-2xl font-black mb-6">WWS CHILE</div>
+                    <p class="text-slate-400 text-sm leading-relaxed">La tecnología al servicio de la educación chilena.
+                        Transformamos celulares en herramientas de alto rendimiento académico.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-slate-300">Educación</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white">Preparación PAES</a></li>
+                        <li><a href="#" class="hover:text-white">Lectura Veloz</a></li>
+                        <li><a href="#" class="hover:text-white">Memoria de Elefante</a></li>
+                        <li><a href="#" class="hover:text-white">Curso de Inglés</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-slate-300">Recursos</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white">YouTube Chile</a></li>
+                        <li><a href="#" class="hover:text-white">TikTok Educativo</a></li>
+                        <li><a href="#" class="hover:text-white">Guía PAES PDF</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-slate-300">Comunidad</h4>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-600 transition">YT</a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition">TK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-slate-500 text-xs">
+                © 2024 WWS Chile. Desarrollado con ❤️ en el fin del mundo. 🇨🇱
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
