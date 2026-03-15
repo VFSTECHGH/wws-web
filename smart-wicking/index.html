@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart-Wicking O'Higgins — Micro-invernaderos Inteligentes y Circulares</title>
+    <meta name="description"
+        content="Sistema de micro-invernaderos inteligentes con riego por capilaridad, IA local y economía circular. Ahorra hasta un 80% de agua. Región de O'Higgins, Chile.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Smart-Wicking O'Higgins">
+    <meta property="og:description"
+        content="Micro-invernaderos inteligentes con riego capilar e IA. Ahorra hasta 80% de agua.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/hero.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green-50: #f0fdf4;
+            --green-100: #dcfce7;
+            --green-200: #bbf7d0;
+            --green-400: #4ade80;
+            --green-500: #22c55e;
+            --green-600: #16a34a;
+            --green-700: #15803d;
+            --green-800: #166534;
+            --green-900: #14532d;
+            --green-950: #052e16;
+            --blue-400: #60a5fa;
+            --blue-500: #3b82f6;
+            --amber-400: #fbbf24;
+            --amber-500: #f59e0b;
+            --cyan-400: #22d3ee;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --bg-dark: #0a1a0f;
+            --bg-card: #0f2618;
+            --bg-card-alt: #122a1c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(34, 197, 94, 0.6);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 26, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+            transition: all 0.3s;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--green-500), var(--green-700));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, var(--green-400), var(--cyan-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--gray-400);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green-400);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--green-600), var(--green-800));
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            padding: 140px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--green-400);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--green-400), var(--cyan-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            margin-bottom: 32px;
+            max-width: 520px;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-img {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--green-400), var(--amber-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-title .accent {
+            background: linear-gradient(135deg, var(--green-400), var(--cyan-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 1.15rem;
+            color: var(--gray-400);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ========== PROBLEM SECTION ========== */
+        .problem {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 38, 24, 0.5) 50%, var(--bg-dark) 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .problem-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .problem-img img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .problem-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .problem-text p {
+            color: var(--gray-300);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        .problem-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .problem-stat {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .problem-stat .val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ef4444;
+        }
+
+        .problem-stat .lbl {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== HOW IT WORKS ========== */
+        .how-it-works {
+            background: var(--bg-dark);
+        }
+
+        .diagram-wrapper {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+            background: #fff;
+        }
+
+        .diagram-wrapper img {
+            width: 100%;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .step {
+            background: var(--bg-card);
+            border: 1px solid rgba(34, 197, 94, 0.12);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            border-color: var(--green-500);
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--green-600), var(--green-800));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 auto 16px;
+        }
+
+        .step h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== SOLUTION / FEATURES ========== */
+        .solution {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 38, 24, 0.4) 50%, var(--bg-dark) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            border-radius: 20px;
+            padding: 36px 28px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green-500), var(--cyan-400));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.12);
+            border-color: rgba(34, 197, 94, 0.25);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(34, 197, 94, 0.12);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== APP SECTION ========== */
+        .app-section {
+            background: var(--bg-dark);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .app-img {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+        }
+
+        .app-img img {
+            width: 100%;
+        }
+
+        .app-features {
+            list-style: none;
+        }
+
+        .app-features li {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .app-features .check {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-400);
+            font-size: 1rem;
+            margin-top: 2px;
+        }
+
+        .app-features h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .app-features p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== SUSTAINABILITY ========== */
+        .sustainability {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 38, 24, 0.3) 50%, var(--bg-dark) 100%);
+        }
+
+        .ods-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .ods-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            border-radius: 20px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .ods-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .ods-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 14px;
+        }
+
+        .ods-6 .ods-number {
+            background: rgba(34, 211, 238, 0.15);
+            color: var(--cyan-400);
+        }
+
+        .ods-12 .ods-number {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--amber-400);
+        }
+
+        .ods-2 .ods-number {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--green-400);
+        }
+
+        .ods-13 .ods-number {
+            background: rgba(96, 165, 250, 0.15);
+            color: var(--blue-400);
+        }
+
+        .ods-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .ods-card p {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .ods-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ========== SENSOR SECTION ========== */
+        .sensor-section {
+            background: var(--bg-dark);
+        }
+
+        .sensor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sensor-img {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+        }
+
+        .sensor-img img {
+            width: 100%;
+        }
+
+        .sensor-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .sensor-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .sensor-item:hover {
+            border-color: var(--green-500);
+        }
+
+        .sensor-item .icon {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .sensor-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .sensor-item p {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+        }
+
+        @media (max-width: 768px) {
+            .sensor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sensor-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== CTA / CONTACT ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--green-900), var(--bg-dark));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin: 0 auto 36px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--green-500), var(--green-700));
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: pulseGlow 2s infinite;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);
+        }
+
+        .corfo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 28px;
+            margin-top: 32px;
+        }
+
+        .corfo-badge span {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        .corfo-badge strong {
+            color: var(--white);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: rgba(10, 26, 15, 0.9);
+            border-top: 1px solid rgba(34, 197, 94, 0.1);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--green-400);
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--green-300);
+        }
+
+        /* ========== UTILITIES ========== */
+        .text-green {
+            color: var(--green-400);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">Smart-Wicking</span>
+            </a>
+            <nav>
+                <a href="#problema">Problema</a>
+                <a href="#como-funciona">Cómo funciona</a>
+                <a href="#solucion">Solución</a>
+                <a href="#app">App</a>
+                <a href="#sostenibilidad">Sostenibilidad</a>
+                <a href="#contacto" class="nav-cta">Contáctanos</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menú">☰</button>
+        </div>
+    </header>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge">🌾 Proyecto Semilla Inicia O'Higgins 2026</div>
+                    <h1>Micro-invernaderos <span class="accent">Inteligentes</span> y Circulares</h1>
+                    <p>Sistema de riego por capilaridad con IA local y economía circular. Ahorra hasta un 80% de agua y
+                        cultiva alimentos frescos de forma inteligente.</p>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-value">80%</div>
+                            <div class="stat-label">Ahorro de agua</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Internet requerido</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">♻️</div>
+                            <div class="stat-label">Economía circular</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-img">
+                    <img src="img/hero.png" alt="Invernadero Smart-Wicking con cultivos frescos en O'Higgins"
+                        loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PROBLEMA ====== -->
+    <section class="problem" id="problema">
+        <div class="container">
+            <div class="section-title">
+                <h2>El <span class="accent">Problema</span></h2>
+                <p>La crisis hídrica en O'Higgins amenaza a miles de pequeños agricultores y parceleros</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-img animate-on-scroll">
+                    <img src="img/comparison.png" alt="Comparación: riego tradicional vs Smart-Wicking">
+                </div>
+                <div class="problem-text animate-on-scroll">
+                    <h3>El riego tradicional desperdicia hasta el 80% del agua</h3>
+                    <p>Los pequeños agricultores y nuevos parceleros de la Región de O'Higgins enfrentan una realidad
+                        crítica: la escasez hídrica combinada con métodos de riego ineficientes que desperdician el
+                        recurso más valioso.</p>
+                    <p>Las soluciones tecnológicas existentes están diseñadas para grandes productores, requieren
+                        internet permanente y tienen costos prohibitivos.</p>
+                    <div class="problem-stats">
+                        <div class="problem-stat">
+                            <div class="val">80%</div>
+                            <div class="lbl">Agua desperdiciada con riego tradicional</div>
+                        </div>
+                        <div class="problem-stat">
+                            <div class="val">15K+</div>
+                            <div class="lbl">Pequeños agricultores en O'Higgins</div>
+                        </div>
+                        <div class="problem-stat">
+                            <div class="val">$0</div>
+                            <div class="lbl">Soluciones accesibles hoy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CÓMO FUNCIONA ====== -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Cómo <span class="accent">funciona</span>?</h2>
+                <p>El sistema de riego por capilaridad (Wicking Bed) lleva el agua desde un reservorio inferior
+                    directamente a las raíces</p>
+            </div>
+
+            <div class="diagram-wrapper animate-on-scroll">
+                <img src="img/diagram.png" alt="Diagrama de corte transversal del sistema Wicking Bed">
+            </div>
+
+            <div class="steps">
+                <div class="step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h4>Reservorio</h4>
+                    <p>Grava y piedras almacenan agua en la base, dentro de un contenedor impermeable de pallets
+                        reciclados.</p>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h4>Capilaridad</h4>
+                    <p>El agua sube naturalmente a través del sustrato hasta las raíces. Sin bombas, sin electricidad,
+                        sin desperdicio.</p>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h4>Sensores + IA</h4>
+                    <p>Sensores miden humedad, temperatura y nivel de agua. La IA local procesa imágenes para detectar
+                        plagas.</p>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <h4>App Móvil</h4>
+                    <p>Escanea un código QR, toma una foto de tu cultivo y recibe un diagnóstico de salud instantáneo
+                        vía IA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SOLUCIÓN / FEATURES ====== -->
+    <section class="solution" id="solucion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra <span class="accent">Solución</span></h2>
+                <p>Una arquitectura híbrida que se adapta al bolsillo y necesidad de cada agricultor</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">♻️</div>
+                    <h3>Economía Circular</h3>
+                    <p>Estructuras modulares construidas con pallets y maderas recicladas. Reducimos la barrera de
+                        entrada económica al mínimo.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🤖</div>
+                    <h3>IA Local (Edge Computing)</h3>
+                    <p>Inteligencia artificial que funciona sin internet. Detecta plagas, deficiencias nutricionales y
+                        optimiza el riego en tiempo real.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">📱</div>
+                    <h3>App con QR</h3>
+                    <p>Cada cama de cultivo tiene un código QR único. El agricultor toma una foto y nuestro servidor
+                        devuelve un diagnóstico completo.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">💧</div>
+                    <h3>Ahorro Hídrico Extremo</h3>
+                    <p>El riego por capilaridad reduce el consumo entre 50% y 80% frente al riego convencional. El agua
+                        va directo a la raíz.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">☀️</div>
+                    <h3>Energía Solar Autónoma</h3>
+                    <p>Los sensores y la IA perimetral se alimentan con energía solar. Operación 100% autónoma en zonas
+                        rurales aisladas.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">📈</div>
+                    <h3>Escalable</h3>
+                    <p>De una parcela en Litueche a toda la región y más allá. El modelo App + Kits permite crecer con
+                        costos marginales bajos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== APP ====== -->
+    <section class="app-section" id="app">
+        <div class="container">
+            <div class="section-title">
+                <h2>La <span class="accent">App</span></h2>
+                <p>Diagnóstico de cultivos con inteligencia artificial al alcance de tu celular</p>
+            </div>
+
+            <div class="app-grid">
+                <div class="app-img animate-on-scroll">
+                    <img src="img/app.png"
+                        alt="App Smart-Wicking mostrando dashboard de monitoreo de invernadero con QR">
+                </div>
+                <div>
+                    <ul class="app-features">
+                        <li class="animate-on-scroll">
+                            <div class="check">✓</div>
+                            <div>
+                                <h4>Escaneo QR por cada cama de cultivo</h4>
+                                <p>Cada wicking bed tiene un código único. Escanéalo para acceder al historial y
+                                    diagnóstico de esa cama.</p>
+                            </div>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <div class="check">✓</div>
+                            <div>
+                                <h4>Diagnóstico con IA por fotografía</h4>
+                                <p>Toma una foto de tus plantas y nuestro servidor de IA analiza su estado de salud,
+                                    detecta plagas y sugiere acciones.</p>
+                            </div>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <div class="check">✓</div>
+                            <div>
+                                <h4>Monitoreo de humedad y temperatura</h4>
+                                <p>Si tienes el Kit Pro, visualiza en tiempo real los niveles de agua del reservorio,
+                                    humedad del suelo y ambiente.</p>
+                            </div>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <div class="check">✓</div>
+                            <div>
+                                <h4>Historial de crecimiento</h4>
+                                <p>Registra el avance de cada cultivo con fotos y datos. Compara rendimientos entre
+                                    temporadas.</p>
+                            </div>
+                        </li>
+                        <li class="animate-on-scroll">
+                            <div class="check">✓</div>
+                            <div>
+                                <h4>Plan gratuito disponible</h4>
+                                <p>3 diagnósticos mensuales gratis. Plan Premium con diagnósticos ilimitados y
+                                    recomendaciones avanzadas.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SENSOR / KIT PRO ====== -->
+    <section class="sensor-section" id="kit">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kit <span class="accent">Pro</span></h2>
+                <p>Monitoreo 24/7 con sensores e IA perimetral para agricultores que exigen el máximo control</p>
+            </div>
+
+            <div class="sensor-grid">
+                <div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 24px;">Hardware inteligente para el
+                        campo</h3>
+                    <p style="color: var(--gray-300); margin-bottom: 28px; font-size: 1.05rem;">El Kit Pro incluye todo
+                        lo necesario para convertir tu invernadero en un sistema autónomo e inteligente. Funciona sin
+                        internet constante gracias a la IA perimetral.</p>
+                    <div class="sensor-list">
+                        <div class="sensor-item">
+                            <div class="icon">💧</div>
+                            <h4>Sensor de humedad</h4>
+                            <p>Capacitivo, resistente a la corrosión</p>
+                        </div>
+                        <div class="sensor-item">
+                            <div class="icon">📊</div>
+                            <h4>Nivel de agua</h4>
+                            <p>Ultrasónico para el reservorio</p>
+                        </div>
+                        <div class="sensor-item">
+                            <div class="icon">🌡️</div>
+                            <h4>Temp. y humedad</h4>
+                            <p>BME280 ambiente del invernadero</p>
+                        </div>
+                        <div class="sensor-item">
+                            <div class="icon">📸</div>
+                            <h4>Cámara IA</h4>
+                            <p>Visión diurna/nocturna con IR</p>
+                        </div>
+                        <div class="sensor-item">
+                            <div class="icon">🧠</div>
+                            <h4>Raspberry Pi</h4>
+                            <p>Cerebro de IA perimetral local</p>
+                        </div>
+                        <div class="sensor-item">
+                            <div class="icon">☀️</div>
+                            <h4>Panel solar</h4>
+                            <p>Autonomía energética total</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sensor-img animate-on-scroll">
+                    <img src="img/sensor.png" alt="Kit de sensores Smart-Wicking con panel solar y Raspberry Pi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SOSTENIBILIDAD ====== -->
+    <section class="sustainability" id="sostenibilidad">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compromiso <span class="accent">Sostenible</span></h2>
+                <p>Nuestro proyecto se alinea con los Objetivos de Desarrollo Sostenible de la ONU</p>
+            </div>
+
+            <div class="ods-grid">
+                <div class="ods-card ods-6 animate-on-scroll">
+                    <div class="ods-number">6</div>
+                    <h4>Agua Limpia</h4>
+                    <p>Reducimos la huella hídrica del cultivo de hortalizas entre un 50% y 80%.</p>
+                </div>
+                <div class="ods-card ods-12 animate-on-scroll">
+                    <div class="ods-number">12</div>
+                    <h4>Producción Responsable</h4>
+                    <p>Economía circular: pallets y maderas recicladas en la construcción de invernaderos.</p>
+                </div>
+                <div class="ods-card ods-2 animate-on-scroll">
+                    <div class="ods-number">2</div>
+                    <h4>Hambre Cero</h4>
+                    <p>Democratizamos el acceso a tecnología agrícola para pequeños productores.</p>
+                </div>
+                <div class="ods-card ods-13 animate-on-scroll">
+                    <div class="ods-number">13</div>
+                    <h4>Acción por el Clima</h4>
+                    <p>Adaptación al cambio climático mediante agricultura resiliente y eficiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="cta-section" id="contacto">
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2>Agricultura <span class="accent">inteligente</span>,<br>circular y accesible</h2>
+            <p>Estamos construyendo el futuro de la agricultura en O'Higgins. ¿Quieres ser parte? Contáctanos para saber
+                más sobre el proyecto o nuestros kits y servicios.</p>
+            <a href="mailto:emprendimiento@vfstech.net" class="cta-btn">
+                ✉️ Contáctanos
+            </a>
+            <div class="corfo-badge">
+                <span>Proyecto postulado a <strong>Semilla Inicia O'Higgins 2026</strong> — CORFO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;">🌱 <strong>Smart-Wicking O'Higgins</strong> — Micro-invernaderos
+                Inteligentes y Circulares</p>
+            <p>© 2026 | Región de O'Higgins, Chile | <a href="https://vfstech.net">VFS Tech</a></p>
+        </div>
+    </footer>
+
+    <!-- ====== SCROLL ANIMATION ====== -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.background = 'rgba(10, 26, 15, 0.95)';
+                nav.style.padding = '20px 24px';
+                nav.style.gap = '16px';
+                nav.style.borderBottom = '1px solid rgba(34, 197, 94, 0.15)';
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+
+</html>
