@@ -156,10 +156,29 @@
             margin: 16px 0;
         }
 
+        .highlight-box.warning {
+            background: rgba(255, 107, 53, 0.08);
+            border-color: rgba(255, 107, 53, 0.2);
+        }
+
+        .highlight-box.warning p {
+            color: #ff6b35;
+        }
+
         .highlight-box p {
             color: #4ade80;
             margin: 0;
             font-weight: 500;
+        }
+        
+        .link-terceros {
+            color: #4ade80;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .link-terceros:hover {
+            text-decoration: underline;
         }
 
         footer {
@@ -206,7 +225,7 @@
             <div class="app-icon">🦅</div>
             <h1>Falcon Speed Reader</h1>
             <p class="subtitle">Política de Privacidad</p>
-            <span class="update-date">Última actualización: 13 de diciembre de 2025</span>
+            <span class="update-date">Última actualización: 05 de abril de 2026</span>
         </header>
 
         <div class="content">
@@ -219,18 +238,12 @@
             <section>
                 <h2>1. Información que recopilamos</h2>
                 <div class="highlight-box">
-                    <p>Falcon Speed Reader NO recopila, almacena ni transmite ninguna información personal
-                        identificable
-                        (PII).</p>
+                    <p>Recopilamos información técnica limitada para mejorar el rendimiento de la aplicación, mostrar publicidad relevante y procesar compras dentro de la aplicación.</p>
                 </div>
                 <ul>
-                    <li><strong>Datos de usuario:</strong> No requerimos registro, inicio de sesión ni proporcionarnos
-                        su nombre, correo electrónico o número de teléfono.</li>
-                    <li><strong>Datos de uso:</strong> No rastreamos su comportamiento dentro de la aplicación ni
-                        utilizamos herramientas de análisis de terceros (como Google Analytics o Firebase Analytics).
-                    </li>
-                    <li><strong>Datos del dispositivo:</strong> No accedemos a identificadores únicos del dispositivo,
-                        ubicación GPS ni lista de contactos.</li>
+                    <li><strong>Identificadores de Publicidad y Dispositivo (Device IDs):</strong> La aplicación utiliza <strong>Google AdMob</strong> para mostrar anuncios en la versión gratuita. Esto significa que se recopila y transmite el ID de publicidad de su dispositivo y configuraciones técnicas a los proveedores de anuncios para personalizar la publicidad y medir su rendimiento.</li>
+                    <li><strong>Datos de Análisis y Diagnóstico:</strong> Utilizamos <strong>Firebase Analytics</strong> y <strong>Crashlytics</strong> para recopilar datos técnicos como rendimiento del dispositivo, reportes de errores (crash logs) e interacciones con la aplicación. Esta información nos ayuda a solucionar problemas y mejorar la estabilidad.</li>
+                    <li><strong>Compras Integradas:</strong> Utilizamos el servicio de facturación de Google Play (Play Billing). Los pagos los maneja directamente Google; nosotros no recopilamos ni tenemos acceso a sus datos financieros.</li>
                 </ul>
             </section>
 
@@ -239,22 +252,19 @@
                 <p>La aplicación utiliza el <strong>Storage Access Framework (SAF)</strong> de Android para abrir
                     documentos.</p>
                 <ul>
-                    <li><strong>Acceso a archivos:</strong> Solo accedemos a los archivos específicos que usted
-                        selecciona manualmente a través del selector de documentos del sistema.</li>
-                    <li><strong>Persistencia:</strong> La aplicación no tiene acceso general a su almacenamiento interno
-                        o externo, solo acceso temporal de lectura al documento seleccionado.</li>
-                    <li><strong>Caché:</strong> Los datos procesados se mantienen en la memoria volátil (RAM) durante la
-                        sesión y se descartan al cerrar la aplicación. Solo se guardan configuraciones básicas
-                        (velocidad preferida, tema) en las preferencias privadas de la aplicación.</li>
+                    <li><strong>Acceso a archivos personales:</strong> Solo leemos los documentos que usted selecciona voluntariamente para usar la función de lectura rápida. Los textos procesados se mantienen de manera local en la memoria temporal durante la sesión y <strong>nunca</strong> se envían o copian a nuestros servidores externos.</li>
+                    <li><strong>Persistencia:</strong> La aplicación no tiene acceso general a su almacenamiento, solo acceso temporal de lectura al documento seleccionado.</li>
                 </ul>
             </section>
 
             <section>
-                <h2>3. Publicidad</h2>
-                <div class="highlight-box">
-                    <p>Falcon Speed Reader es una aplicación libre de publicidad. No mostramos anuncios ni compartimos
-                        datos con redes publicitarias.</p>
-                </div>
+                <h2>3. Servicios de Terceros</h2>
+                <p>Utilizamos las siguientes herramientas y SDK de terceros, que tienen sus propias políticas respecto a la información que recopilan:</p>
+                <ul>
+                    <li><a class="link-terceros" href="https://policies.google.com/privacy" target="_blank">Política de Privacidad de Google Play Services</a></li>
+                    <li><a class="link-terceros" href="https://policies.google.com/technologies/ads" target="_blank">Política de Privacidad de Google AdMob</a></li>
+                    <li><a class="link-terceros" href="https://firebase.google.com/support/privacy/" target="_blank">Privacidad y Seguridad en Firebase</a></li>
+                </ul>
             </section>
 
             <section>
@@ -266,12 +276,12 @@
             <section>
                 <h2>5. Contacto</h2>
                 <p>Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos a través de la
-                    página de la tienda de aplicaciones.</p>
+                    página de soporte en la tienda de aplicaciones.</p>
             </section>
         </div>
 
         <footer>
-            <p>© 2025 Falcon Speed Reader. Todos los derechos reservados.</p>
+            <p>© 2026 Falcon Speed Reader. Todos los derechos reservados.</p>
             <p style="margin-top: 8px;"><a href="https://play.google.com/store/apps/details?id=com.falcontextreading"
                     target="_blank">Ver en Google Play</a></p>
         </footer>
